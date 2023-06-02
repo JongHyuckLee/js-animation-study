@@ -1,0 +1,53 @@
+    <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Chapter1</title>
+    <style>
+        @keyframes sample-ani {
+            from {
+                transform: perspective(500px) rotateY(0deg);
+            }
+            to {
+
+                transform: perspective(1000px) rotateY(180deg);
+            }
+        }
+        .card {
+            width: 100px;
+            height: 150px;
+            border-radius: 0.5em;
+            background: red;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 1.5rem;
+            margin: 1em;
+            /*transform: rotateY(45deg);*/
+            animation: sample-ani 1s infinite linear alternate;
+            /*transform: perspective(500px) rotateY(45deg);*/
+
+        }
+
+        .world {
+            /*perspective: 600px;*/
+            width: 80vw;
+            height: 60vh;
+            background: #fff000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+    </style>
+</head>
+<body>
+<h1>Animation</h1>
+
+<div class="world">
+    <div class="card">CARD</div>
+    <div class="card">CARD</div>
+    <div class="card">CARD</div>
+</div>
+
+</body>
+</html>

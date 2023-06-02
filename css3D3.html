@@ -1,0 +1,68 @@
+    <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Chapter1</title>
+    <style>
+
+        .world {
+            width: 80vw;
+            height: 60vh;
+            background: #fff000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .card {
+            position: relative;
+            width: 100px;
+            height: 150px;
+            margin: 1em;
+            transform: rotateY(0deg);
+            transform-style: preserve-3d;
+            transform-origin: left;
+            transition: 1s ease;
+
+        }
+        .card-side {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 0.5em;
+            font-size: 1.5rem;
+            position: absolute;
+            left: 0;
+            top:0;
+            width: 100%;
+            height: 100%;
+            backface-visibility: hidden;
+            -webket-backface-visibility: hidden;
+        }
+        .card-side-front {
+            background: white;
+            z-index: 1;
+
+        }
+        .card-side-back {
+            background: green;
+            transform: rotateY(180deg);
+            cursor: pointer;
+        }
+
+        .world:hover .card {
+            transform: rotateY(180deg);
+        }
+    </style>
+</head>
+<body>
+<h1>Animation</h1>
+
+<div class="world">
+    <div class="card">
+        <div class="card-side card-side-front">F</div>
+        <div class="card-side card-side-back">B</div>
+    </div>
+</div>
+
+</body>
+</html>

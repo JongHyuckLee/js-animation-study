@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .container {
+            display: flex;
+            height: 80vh;
+            background: gray;
+        }
+        .item {
+            flex-grow: 1;
+            flex-basis: 0;
+            font-size: 3rem;
+            border: 3px solid black;
+            background: white;
+        }
+        .item:nth-child(1) { flex-grow: 1;}
+    </style>
+</head>
+<body>
+<div class="container">
+    <div class="item" >AAA</div>
+    <div class="item" >B</div>
+    <div class="item" >C</div>
+    <div class="item" >D</div>
+    <div class="item" >E</div>
+
+</div>
+</body>
+</html>

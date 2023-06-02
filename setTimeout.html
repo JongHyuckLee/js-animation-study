@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<button class="btn">취소</button>
+<script>
+    let timeId;
+    const btn = document.querySelector('.btn');
+    function sample () {
+        console.log('sample!!!');
+    }
+    timeId = setTimeout(sample, 1000);
+    console.log({timeId});
+
+    btn.addEventListener('click', function () {
+        clearTimeout(timeId);
+    })
+
+</script>
+</body>
+</html>

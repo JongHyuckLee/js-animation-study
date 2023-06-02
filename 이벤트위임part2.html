@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+  <style>
+    .menu {
+      background: cornsilk;
+    }
+    .menu-btn {
+      border: 5px solid white;
+      border-radius: 20px;
+      outline: 0;
+      font: 900 1.2rem NotoSans;
+      background: linear-gradient(0deg, rgba(233, 210, 0, 1) 0%, rgba(255, 240, 0, 1) 24%, rgba(255, 240, 0, 1) 70%, rgba(255, 255, 255, 1) 100%);
+      box-shadow: rgba(0, 0, 0, 0.1) 0 0 0 1px inset;
+    }
+    .btn-label {
+      text-shadow: rgba(255, 255, 255, 1) 0 1px 0;
+      /*pointer-events: none;*/
+    }
+  .icon {
+    width: 60px;
+    /*pointer-events: none;*/
+  }
+  </style>
+</head>
+<body>
+  <div class="menu">
+<!--    <button class="menu-btn" data-value="1">-->
+<!--      <img class="icon" src="./images/ilbuni_1.png">-->
+<!--      <span class="btn-label">일분이 1</span>-->
+<!--    </button>-->
+<!--    <button class="menu-btn" data-value="2">-->
+<!--      <img class="icon" src="./images/ilbuni_2.png">-->
+<!--      <span class="btn-label">일분이 2</span>-->
+<!--    </button>-->
+<!--    <button class="menu-btn" data-value="3">-->
+<!--      <img class="icon" src="./images/ilbuni_3.png">-->
+<!--      <span class="btn-label">일분이 3</span>-->
+<!--    </button>-->
+  </div>
+</body>
+<script>
+
+  const menu = document.querySelector('.menu');
+
+  function clickBtnHandler (event) {
+    // console.log(event);
+    // console.log(this);
+    // console.log(event.currentTarget);
+    // console.log(event.target);
+    // console.log(event.target.getAttribute('data-value'));
+    // console.log(event.target.dataset);
+    /* js로 해결하기 */
+    let elem = event.target;
+
+    while (!elem.classList.contains('menu-btn')) {
+        elem = elem.parentNode;
+        console.log(elem.nodeName)
+         if (elem.nodeName === 'BODY') {
+           elem = null;
+           return
+         }
+    }
+    console.log(elem.dataset);
+  }
+  menu.addEventListener('click', clickBtnHandler);
+  window.addEventListener('click', () => {
+    const htmlStr = `
+      <button class="menu-btn" data-value="1">
+      <img class="icon" src="./images/ilbuni_1.png">
+      <span class="btn-label">일분이 1</span>
+    </button>
+    <button class="menu-btn" data-value="2">
+      <img class="icon" src="./images/ilbuni_2.png">
+      <span class="btn-label">일분이 2</span>
+    </button>
+    <button class="menu-btn" data-value="3">
+      <img class="icon" src="./images/ilbuni_3.png">
+      <span class="btn-label">일분이 3</span>
+    </button>
+    `;
+    menu.innerHTML = htmlStr;
+  });
+  // const btns = document.querySelectorAll('.menu-btn');
+  // for (let i = 0; i < btns.length; i++) {
+  //   btns[i].addEventListener('click', clickBtnHandler)
+  // }
+
+  // btns[0].addEventListener('click', clickBtnHandler)
+  // btns[1].addEventListener('click', clickBtnHandler)
+  // btns[2].addEventListener('click', clickBtnHandler)
+</script>
+</html>

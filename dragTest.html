@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<style>
+    #draggable {
+        transition: all 0.1s ease-in-out;
+    }
+</style>
+<body>
+<div class="dropzone">
+  <div id="draggable" draggable="true">This div is draggable</div>
+</div>
+<div class="dropzone" id="droptarget"></div>
+</body>
+<script>
+    let dragged;
+
+    /* events fired on the draggable target */
+    const source = document.getElementById("draggable");
+    source.addEventListener("drag", (event) => {
+        console.log(event.clientX, event.clientY);
+        event.currentTarget.style.transform =`translate(${event.pageX}px, ${event.pageY}px)`
+    });
+    source.addEventListener("dragstart", (event) => {
+        console.log(event.clientX, event.clientY);
+        event.currentTarget.style.transform =`translate(${event.pageX}px, ${event.pageY}px)`
+    });
+    source.addEventListener("dragend", (event) => {
+        console.log(event.clientX, event.clientY);
+        event.currentTarget.style.transform =`translate(${event.pageX}px, ${event.pageY}px)`
+    });
+</script>
+</html>

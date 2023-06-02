@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<style>
+  .ball {
+      /*상위 dom의 margin과 상관없이 위치를 잡기 위해 position을 absolute로 둔다.*/
+      position: absolute;
+      left: 0;
+      top:0;
+      width: 30px;
+      height: 30px;
+      /*margin: -15px 0 0 -15px;*//*공의 크기만큼 margin을 조정해서 커서 가운데로 오도록한다.*/
+      border-radius: 50%;
+      background: red;
+
+      transition: all .1s linear;
+  }
+
+  .ball.end {
+      background: dodgerblue;
+  }
+</style>
+<body>
+<div class="ball" ></div>
+<script>
+    const ballElem = document.querySelector('.ball');
+
+    // window.addEventListener('click', function (e) {
+    //         // console.log(e.clientX, e.clientY);
+    //         ballElem.style.transform = `translate(${e.clientX - 15}px, ${e.clientY - 15}px)`; // margin을 조절하거나 x, y position을 크기의 반만큼 빼준다.
+    // });
+
+    function mouseMove(e) {
+        ballElem.style.transform = `translate(${e.clientX - 15}px, ${e.clientY - 15}px)`;
+        // set the element's new position:
+        // ballElem.style.top = (e.clientY) + "px";
+        // ballElem.style.left = (e.clientX) + "px";
+    }
+
+    ballElem.addEventListener('mousedown', function(e){
+
+        // get the starting position of the cursor
+
+
+        document.addEventListener('mousemove', mouseMove);
+
+        document.addEventListener('mouseup', function(){
+            document.removeEventListener('mousemove', mouseMove);
+        });
+
+    });
+
+    // ballElem.addEventListener('transitionstart', function (e) {
+    //     ballElem.classList.add('end');
+    //     console.log(e.elapsedTime); // transition duration
+    //     console.log(e.propertyName);
+    // });
+    // ballElem.addEventListener('transitionend', function (e) {
+    //     ballElem.classList.add('end');
+    //     console.log(e.elapsedTime); // transition duration
+    //     console.log(e.propertyName);
+    // });
+</script>
+</body>
+</html>
