@@ -3,6 +3,7 @@
         const stageElem = document.querySelector('.stage');
         const houseElem = document.querySelector('.house');
         const barElem = document.querySelector('.progress-bar');
+
         const mousePos = { x: 0, y: 0 };
         let maxScrollValue = 0;
         const resizeHandler = () => {
@@ -16,6 +17,7 @@
             houseElem.style.transform = `translateZ(${zMove - 490}vw)`; // z 좌표 즉, 화면 안쪽으로 이동 시킴
             // progress bar
             barElem.style.width = `${scrollPer * 100}%`;
+
         });
 
         window.addEventListener("mousemove", function (e) {
@@ -30,8 +32,6 @@
 
         window.addEventListener('resize', resizeHandler);
         stageElem.addEventListener('click', function (e) {
-
-
             new Character({
                     xPos: e.clientX / window.innerWidth * 100,
                     yPos: e.clientY / window.innerHeight * 100

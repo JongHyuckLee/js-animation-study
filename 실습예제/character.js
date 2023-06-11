@@ -30,3 +30,9 @@ function Character({ xPos, yPos }) {
     this.mainElem.style.top = `${yPos}%`;
     document.querySelector('.stage').appendChild(this.mainElem)
 }
+Character.prototype = {
+    constructor: Character,
+    running: function () {
+        
+    }
+}

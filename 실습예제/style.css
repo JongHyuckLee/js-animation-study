@@ -9,6 +9,22 @@
         transform: rotateY(-20deg);
     }
 }
+@keyframes ani-running-leg  {
+    from {
+        transform: rotateX(35deg);
+    }
+    to {
+        transform: rotateX(-35deg);
+    }
+}
+@keyframes ani-running-arm  {
+    from {
+        transform: rotateY(35deg);
+    }
+    to {
+        transform: rotateY(-35deg);
+    }
+}
 
 @keyframes ani-left-leg  {
     from {
@@ -199,6 +215,16 @@ body {
     height: calc(307 / 1334 * 100%);
     transform-origin: left top;
     animation: ani-arm 0.8s alternate-reverse infinite linear;
+}
+
+.character.running .character-arm {
+    animation: ani-running-arm .2s alternate infinite linear;
+}
+.character.running .character-leg-left {
+    animation: ani-running-leg .2s alternate infinite linear;
+}
+.character.running .character-leg-right {
+    animation: ani-running-leg .2s alternate-reverse infinite linear;
 }
 .character-leg-right {
     left: calc(200 / 856 * 100%);
