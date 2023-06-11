@@ -1,4 +1,4 @@
-function Character() {
+function Character({ xPos, yPos }) {
     this.mainElem = document.createElement('div');
     this.mainElem.classList.add('character');
     this.mainElem.innerHTML = ` <div class="character-face-con character-head">
@@ -26,7 +26,7 @@ function Character() {
                 <div class="character-face character-leg-face face-back"></div>
             </div>
         </div>`;
-
-
+    this.mainElem.style.left = `${xPos}%`;
+    this.mainElem.style.top = `${yPos}%`;
     document.querySelector('.stage').appendChild(this.mainElem)
 }

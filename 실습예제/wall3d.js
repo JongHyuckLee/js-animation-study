@@ -25,12 +25,21 @@
             mousePos.x = -1 + (e.clientX / window.innerHeight) * 2;
             mousePos.y = 1 - (e.clientY / window.innerHeight) * 2;
             stageElem.style.transform = `rotateX(${mousePos.y * 7}deg) rotateY(${mousePos.x * 7}deg)`
-            console.log(e.clientX / window.innerWidth, e.clientY / window.innerHeight)
+            // console.log(e.clientX / window.innerWidth, e.clientY / window.innerHeight)
         });
 
         window.addEventListener('resize', resizeHandler);
+        stageElem.addEventListener('click', function (e) {
+
+
+            new Character({
+                    xPos: e.clientX / window.innerWidth * 100,
+                    yPos: e.clientY / window.innerHeight * 100
+                });
+        })
+
         resizeHandler();
 
-        new Character();
+
     }
 )();

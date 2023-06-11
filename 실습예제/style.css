@@ -1,29 +1,29 @@
 @keyframes ani-head  {
-    to { transform: rotateX(-10deg) }
+    to { transform: rotateX(-20deg) }
 }
 @keyframes ani-arm  {
     from {
-        transform: rotateY(10deg);
+        transform: rotateY(20deg);
     }
     to {
-        transform: rotateY(-10deg);
+        transform: rotateY(-20deg);
     }
 }
 
 @keyframes ani-left-leg  {
     from {
-        transform: rotateX(10deg);
+        transform: rotateX(20deg);
     }
     to {
-        transform: rotateX(-10deg);
+        transform: rotateX(-20deg);
     }
 }
 @keyframes ani-right-leg  {
     from {
-        transform: rotateX(-10deg);
+        transform: rotateX(-20deg);
     }
     to {
-        transform: rotateX(10deg);
+        transform: rotateX(20deg);
     }
 }
 body {
@@ -72,14 +72,14 @@ body {
 .wall-left {
     /*left: -500vw;*/
     width: 1000vw;
-    transform: rotateY(90deg) translateZ(-500vw);
+    transform: rotateY(90deg) translateZ(-400vw);
     background: #f8f8f8;
 
 }
 .wall-right {
     /*left: -500vw;*/
     width: 1000vw;
-    transform: rotateY(90deg) translateZ(-400vw);
+    transform: rotateY(90deg) translateZ(-500vw);
     background: #f8f8f8;
 }
 
@@ -186,14 +186,14 @@ body {
 }
 .character-arm-right {
     left: 0;
-    top: calc(648 / 1334 * 100%);
+    top: calc(622 / 1334 * 100%);
     width: calc(244 / 856 * 100%);
     height: calc(307 / 1334 * 100%);
     transform-origin: right top;
     animation: ani-arm 0.8s alternate-reverse infinite linear;
 }
 .character-arm-left {
-    left: calc(600 / 856 * 100%);
+    left: calc(630 / 856 * 100%);
     top: calc(648 / 1334 * 100%);
     width: calc(244 / 856 * 100%);
     height: calc(307 / 1334 * 100%);
@@ -209,8 +209,8 @@ body {
     animation: ani-right-leg 0.8s alternate-reverse infinite linear;
 }
 .character-leg-left {
-    left: calc(414 / 856 * 100%);
-    top: calc(1014 / 1334 * 100%);
+    left: calc(428 / 856 * 100%);
+    top: calc(1010 / 1334 * 100%);
     width: calc(230 /  856 * 100%);
     height: calc(300 / 1334 * 100%);
     transform-origin: center top;
