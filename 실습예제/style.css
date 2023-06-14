@@ -11,35 +11,35 @@
 }
 @keyframes ani-running-leg  {
     from {
-        transform: rotateX(35deg);
+        transform: rotateX(50deg);
     }
     to {
-        transform: rotateX(-35deg);
+        transform: rotateX(-50deg);
     }
 }
 @keyframes ani-running-arm  {
     from {
-        transform: rotateY(35deg);
+        transform: rotateY(50deg);
     }
     to {
-        transform: rotateY(-35deg);
+        transform: rotateY(-50deg);
     }
 }
 
 @keyframes ani-left-leg  {
     from {
-        transform: rotateX(20deg);
+        transform: rotateX(50deg);
     }
     to {
-        transform: rotateX(-20deg);
+        transform: rotateX(-50deg);
     }
 }
 @keyframes ani-right-leg  {
     from {
-        transform: rotateX(-20deg);
+        transform: rotateX(-50deg);
     }
     to {
-        transform: rotateX(20deg);
+        transform: rotateX(50deg);
     }
 }
 body {
@@ -154,10 +154,10 @@ body {
     transform: rotateY(0deg);
 }
 .character[data-direction='left'] {
-    transform: rotateY(-90deg);
+    transform: rotateY(-70deg);
 }
 .character[data-direction='right'] {
-    transform: rotateY(90deg);
+    transform: rotateY(70deg);
 }
 .character-face-con {
     position: absolute;

@@ -1,5 +1,5 @@
 (function () {
-        console.log(document.body.offsetHeight , window.innerHeight)
+        // console.log(document.body.offsetHeight , window.innerHeight)
         const stageElem = document.querySelector('.stage');
         const houseElem = document.querySelector('.house');
         const barElem = document.querySelector('.progress-bar');
@@ -11,7 +11,7 @@
         };
         window.addEventListener('scroll', function () {
             // console.log(scrollY/maxScrollValue);
-            console.log({scrollY, maxScrollValue});
+            // console.log({scrollY, maxScrollValue});
             const scrollPer = scrollY / maxScrollValue; // 전체 스크롤 비율
             const zMove = scrollPer * 970; // z 좌표로 움직이는 값, 970은 너무 작은 비율로 움직이기 때문에 곱해주는 보완값
             houseElem.style.transform = `translateZ(${zMove - 490}vw)`; // z 좌표 즉, 화면 안쪽으로 이동 시킴
