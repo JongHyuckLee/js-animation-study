@@ -1,4 +1,4 @@
-function Character({ xPos, yPos }) {
+function Character({ xPos, speed }) {
     this.mainElem = document.createElement('div');
     this.mainElem.classList.add('character');
     this.mainElem.innerHTML = ` <div class="character-face-con character-head">
@@ -33,9 +33,10 @@ function Character({ xPos, yPos }) {
     this.timeout = null;
     this.lastScrollTop = 0;
     this.xPos = xPos;
-    this.speed = Math.floor(Math.random() ) + 1;
+    this.speed = speed;
     this.direction = ''
-
+    this.runningState = false;
+    this.rafId = 0;
     this.init();
 }
 Character.prototype = {
@@ -66,7 +67,9 @@ Character.prototype = {
             self.direction = 'left';
             // self.mainElem.style.left = `calc(${self.mainElem.style.left} - ${self.speed}%)`;
             // self.mainElem.style.transition = `left 0.1s linear`;
-            self.run(self);
+            // self.run(self); // bind를 사용하지 않을 때
+            self.runningState = true;
+            self.run();
         }
         const actRight = () => {
             self.mainElem.classList.add('running');
@@ -74,9 +77,14 @@ Character.prototype = {
             // self.mainElem.style.left = `calc(${self.mainElem.style.left} + ${self.speed}%)`;
             // self.mainElem.style.transition = `left 0.1s linear`;
             self.direction = 'right';
-            self.run(self);
+            self.runningState = true;
+            // self.run(self); // bind를 사용하지 않을 때
+            self.run();
         }
         window.addEventListener('keydown', function (e) {
+            if (self.runningState) {
+                return;
+            }
             ({
                 "ArrowLeft": actLeft,
                 "ArrowRight": actRight
@@ -85,18 +93,38 @@ Character.prototype = {
         });
         window.addEventListener("keyup", function () {
             self.mainElem.classList.remove('running');
+            self.runningState = false;
+            cancelAnimationFrame(self.rafId);
         });
 
     },
-    run: function (self) {
+    // run: function (self) {
+    //     if (self.direction === 'left') {
+    //         self.xPos -= self.speed;
+    //     } else if (self.direction === 'right') {
+    //         self.xPos += self.speed;
+    //     }
+    //     self.mainElem.style.left = self.xPos + '%';
+    //     requestAnimationFrame(function () {
+    //         self.run(self)
+    //     });
+    // }
+    run: function () {
+        const self = this;
         if (self.direction === 'left') {
             self.xPos -= self.speed;
         } else if (self.direction === 'right') {
             self.xPos += self.speed;
         }
+        console.log(self.xPos)
+        if (self.xPos < 2 ) {
+            self.xPos = 2;
+        }
+
+        if (self.xPos > 88) {
+            self.xPos = 88
+        }
         self.mainElem.style.left = self.xPos + '%';
-        requestAnimationFrame(function () {
-            self.run(self)
-        });
+        self.rafId = requestAnimationFrame(self.run.bind(self));//bind 를 이용하는 방법
     }
 }
